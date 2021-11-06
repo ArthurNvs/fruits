@@ -10,8 +10,5 @@ SwiftUI Masterclass project
     <img align="center" width="50%" height="100%" src="fruits.gif">
 </a>
 
-
-Find out more in:
-
 #
 This project is a module from the *SwiftUI Masterclass 2021 - iOS 15 App Development & Swift 5*.
