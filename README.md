@@ -12,4 +12,4 @@ SwiftUI Masterclass project
 
 
 Find out more in:
-<i>SwiftUI Masterclass 2021 - iOS 15 App Development & Swift 5<i>
+*SwiftUI Masterclass 2021 - iOS 15 App Development & Swift 5*
