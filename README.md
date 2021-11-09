@@ -4,6 +4,7 @@ SwiftUI Masterclass project
 - Light and Dark mode
 - Animations
 - Modern Layout
+- SwiftUI lifecycle
 - Great features from iOS 14+
 
 <a href="#">
