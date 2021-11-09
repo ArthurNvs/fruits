@@ -37,11 +37,12 @@ struct SettingsView: View {
           GroupBox(
             label: SettingsLabelView(labelText: "Application", labelImage: "apps.iphone")
           ) {
-            HStack {
-              Text("Developer").foregroundColor(Color.gray)
-              Spacer()
-              Text("Arthur Neves")
-            }
+              SettingsRowView(name: "Developer", content: "Arthur Neves")
+              SettingsRowView(name: "Designer", content: "Robert Petras")
+              SettingsRowView(name: "Compatibility", content: "iOS 14+")
+              SettingsRowView(name: "Website", linkLabel: "SwiftUI Masterclass", linkDestination: "swiftuimasterclass.com")
+              SettingsRowView(name: "SwiftUI", content: "2.0")
+              SettingsRowView(name: "Version", content: "1.1.0")
           }
           
         } // VStack
