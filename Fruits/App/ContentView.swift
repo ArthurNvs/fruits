@@ -31,9 +31,10 @@ struct ContentView: View {
             Image(systemName: "slider.horizontal.3")
           } //: Button
           .sheet(isPresented: $isShowingSettings) {
-            SettingsView()
+            SettingsView(isPresented: $isShowingSettings)
           })
     } //: NavigationView
+    .navigationViewStyle(StackNavigationViewStyle())
   }
   
   struct ContentView_Previews: PreviewProvider {

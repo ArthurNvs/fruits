@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-  @Environment(\.presentationMode) var presentationMode
+  //@Environment(\.presentationMode) var presentationMode
+  @Binding var isPresented: Bool
+  @AppStorage("isOnboarding") var isOnboarding = false
   
   var body: some View {
     NavigationView {
@@ -32,8 +34,36 @@ struct SettingsView: View {
                 .font(.footnote)
             }
           }
-          // MARK: - 2
-          // MARK: - 3
+
+          GroupBox(
+            label: SettingsLabelView(labelText: "Customization", labelImage: "paintbrush")
+          ) {
+            Divider().padding(.vertical, 4)
+            
+            Text("If you wish, you can restart the application by toggle the switch in this box. That way it starts the onboarding process and you will see the weolcome screen again.")
+              .padding(.vertical, 8)
+              .frame(minHeight: 60)
+              .layoutPriority(1)
+              .font(.footnote)
+              .multilineTextAlignment(.leading)
+            
+            Toggle(isOn: $isOnboarding) {
+              if isOnboarding {
+                Text("Restarted".uppercased())
+                  .fontWeight(.bold)
+                  .foregroundColor(Color.green)
+              } else {
+                Text("Restart".uppercased())
+                  .fontWeight(.bold)
+                  .foregroundColor(Color.secondary)              }
+            }
+            .padding()
+            .background(
+              Color(UIColor.tertiarySystemBackground)
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+            )
+          }
+          
           GroupBox(
             label: SettingsLabelView(labelText: "Application", labelImage: "apps.iphone")
           ) {
@@ -50,7 +80,7 @@ struct SettingsView: View {
         .navigationBarItems(
           trailing:
             Button(action: {
-              presentationMode.wrappedValue.dismiss()
+              isPresented = false
             }) {
               Image(systemName: "xmark")
             }
@@ -62,8 +92,9 @@ struct SettingsView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
+  @State private static var isShowingSettings = true
   static var previews: some View {
-    SettingsView()
+    SettingsView(isPresented: $isShowingSettings)
       .preferredColorScheme(.dark)
       .previewLayout(.sizeThatFits)
   }
