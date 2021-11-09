@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  @AppStorage("isOnboarding") var isOnboarding: Bool?
+  @State private var isShowingSettings = false
   
   private var fruits = fruitsData
   
@@ -23,7 +23,17 @@ struct ContentView: View {
         }
       }
       .navigationTitle("Fruits")
-    } // NavigationView
+      .navigationBarItems(
+        trailing:
+          Button(action: {
+            isShowingSettings = true
+          }) {
+            Image(systemName: "slider.horizontal.3")
+          } //: Button
+          .sheet(isPresented: $isShowingSettings) {
+            SettingsView()
+          })
+    } //: NavigationView
   }
   
   struct ContentView_Previews: PreviewProvider {

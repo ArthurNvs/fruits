@@ -15,8 +15,8 @@ struct FruitDetailView: View {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(alignment: .center, spacing: 20) {
           FruitHeaderView(fruit: fruit)
+          
           VStack(alignment: .leading, spacing: 20) {
-
             Text(fruit.title)
               .font(.largeTitle)
               .fontWeight(.heavy)
